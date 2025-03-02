@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize your images online with our fully responsive image resize tool. Optimize images for web use with adjustable dimensions.">
+    <meta name="keywords" content="image resize, optimize images, image optimizer, online image resizer">
+    <meta name="author" content="Your Name">
+    <title>Online Image Resize Tool</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #45a049;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #3d8b40;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Resize Tool Section */
+        #resize-tool {
+            text-align: center;
+        }
+
+        #resize-tool input[type="file"] {
+            display: none;
+        }
+
+        #resize-tool label.upload-label {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #resize-tool label.upload-label:hover {
+            background-color: #45a049;
+        }
+
+        #resize-tool input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #resize-tool button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #resize-tool button:hover {
+            background-color: #45a049;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #imageContainer img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #downloadLink {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #downloadLink:hover {
+            background-color: #45a049;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .home-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            #resize-tool input[type="number"] {
+                width: 80%;
+            }
+
+            #resize-tool button, #downloadLink {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <!-- Home Button -->
+        <a href="/index.html" class="home-button">Home</a>
+        <h1>Online Image Resize Tool</h1>
+    </header>
+    <main>
+        <!-- Top Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Resize Tool -->
+        <section id="resize-tool">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="upload-label">Choose Image</label>
+            <br>
+            <label for="width">Width (px):</label>
+            <input type="number" id="width" min="1" placeholder="Width">
+            <label for="height">Height (px):</label>
+            <input type="number" id="height" min="1" placeholder="Height">
+            <br>
+            <button onclick="resizeImage()">Resize Image</button>
+            <div id="imageContainer"></div>
+            <a id="downloadLink" style="display:none;">Download Resized Image</a>
+        </section>
+
+        <!-- Bottom Ad Unit -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Online Image Resize Tool. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Image resize function
+        function resizeImage() {
+            const fileInput = document.getElementById('imageInput');
+            const widthInput = document.getElementById('width');
+            const heightInput = document.getElementById('height');
+            const imageContainer = document.getElementById('imageContainer');
+            const downloadLink = document.getElementById('downloadLink');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            const width = parseInt(widthInput.value);
+            const height = parseInt(heightInput.value);
+
+            if (isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+                alert('Please enter valid width and height values.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const img = new Image();
+                img.src = event.target.result;
+
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    // Set canvas dimensions to the desired width and height
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    // Draw the image on the canvas with the new dimensions
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Convert canvas to image and display it
+                    const resizedImageUrl = canvas.toDataURL('image/jpeg');
+                    imageContainer.innerHTML = `<img src="${resizedImageUrl}" alt="Resized Image">`;
+
+                    // Enable download link
+                    downloadLink.href = resizedImageUrl;
+                    downloadLink.download = `resized_image_${width}x${height}.jpg`;
+                    downloadLink.style.display = 'inline-block';
+                };
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
